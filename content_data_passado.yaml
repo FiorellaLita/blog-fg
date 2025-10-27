@@ -1,0 +1,165 @@
+- title: Introduction to R
+  author: Beatriz Milz
+  date: '2024-11-12'
+  path: talks/en/2024-11-ufabc-intro-r/index.qmd
+- title: 'Translating R for Data Science into Portuguese: A Community-Led Initiative'
+  author: Beatriz Milz
+  date: '2025-09-18'
+  path: talks/en/2025-posit-conf/index.qmd
+- title: Funciones - R para Ciencia de Datos
+  author: Beatriz Milz
+  date: '2020-05-04'
+  path: talks/es/2020-funciones-r4ds/index.qmd
+- title: R translatón/Hackaton de tradução do R
+  author:
+  - Ángela Sanzo
+  - Beatriz Milz
+  - Caio Lente
+  - Heather Turner
+  - Macarena Quiroga
+  - Natalia da Silva
+  - Patricia Loto
+  - Riva Quiroga
+  - Yanina Bellini
+  - Latin-R Organizers
+  - R Contributors
+  date: '2022-10-15'
+  path: talks/es/2022-latinr-translaton/index.qmd
+- title: Boas práticas em ciência aberta e reprodutível
+  author:
+  - Beatriz Milz
+  - Olavo Amaral
+  date: '2025-10-19'
+  path: talks/pt/2025-10-coda-br/index.qmd
+- title: Documentos reprodutíveis com Quarto
+  author: Beatriz Milz
+  date: '2025-10-22'
+  path: talks/pt/2025-10-python-brasil-tutorial/index.qmd
+- title: Introducción a GitHub para Investigador(a|e)s
+  author:
+  - Yanina Bellini Saibene
+  - Beatriz Milz
+  date: '2024-11-18'
+  path: teaching/es/2024-11-18-latinR-GitHub/index.qmd
+- title: Relatórios reprodutíveis com R
+  author: Beatriz Milz
+  date: '2022-02-02'
+  path: teaching/pt/2022-01-verao-ime-usp-relatorios/index.qmd
+- title: Introdução ao R
+  author: Beatriz Milz
+  date: '2022-05-09'
+  path: teaching/pt/2022-05-cebrap-lab-intro-R/index.qmd
+- title: Relatórios reprodutíveis com R
+  author: Beatriz Milz
+  date: '2023-01-23'
+  path: teaching/pt/2023-01-verao-ime-usp-relatorios/index.qmd
+- title: Introdução ao R
+  author: Beatriz Milz
+  date: '2023-06-26'
+  path: teaching/pt/2023-06-cebrap-lab-intro-R/index.qmd
+- title: Visualização de dados no R
+  author: Beatriz Milz
+  date: '2023-08-28'
+  path: teaching/pt/2023-06-cebrap-lab-viz-R/index.qmd
+- title: Análise quantitativa de texto
+  author: Beatriz Milz
+  date: '2023-11-27'
+  path: teaching/pt/2023-11-cebrap-lab-text-as-data/index.qmd
+- title: Relatórios reprodutíveis com R
+  author: Beatriz Milz
+  date: '2024-01-23'
+  path: teaching/pt/2024-01-verao-ime-usp-relatorios/index.qmd
+- title: Introdução ao R
+  author: Beatriz Milz
+  date: '2024-08-01'
+  path: teaching/pt/2024-08-cebrap-lab-intro-R/index.qmd
+- title: Visualização de dados no R
+  author: Beatriz Milz
+  date: '2024-09-23'
+  path: teaching/pt/2024-09-cebrap-lab-viz-R/index.qmd
+- title: Raspagem de dados com R
+  author: Beatriz Milz
+  date: '2024-10-21'
+  path: teaching/pt/2024-10-cebrap-lab-web-scraping/index.qmd
+- title: Introdução à análise de dados no R
+  author:
+  - Beatriz Milz
+  - Pedro Cavalcanti Gonçalves Ferreira
+  - Rafael H. M. Pereira
+  date: '2024-10-01'
+  path: teaching/pt/2024-10-ipea-intro-r/index.qmd
+- title: Análise quantitativa de texto
+  author: Beatriz Milz
+  date: '2024-11-11'
+  path: teaching/pt/2024-11-cebrap-lab-text-as-data/index.qmd
+- title: R intermediário e pesquisa reprodutível
+  author:
+  - Beatriz Milz
+  - Pedro Cavalcanti Gonçalves Ferreira
+  - Rafael H. M. Pereira
+  date: '2025-01-20'
+  path: teaching/pt/2025-01-ipea-intermediario-r/index.qmd
+- title: Relatórios reprodutíveis com R
+  author: Beatriz Milz
+  date: '2025-01-14'
+  path: teaching/pt/2025-01-verao-ime-usp-relatorios/index.qmd
+- title: Introdução ao R
+  author: Beatriz Milz
+  date: '2025-08-18'
+  path: teaching/pt/2025-08-cebrap-lab-intro-R/index.qmd
+- title: Visualização de dados no R
+  author: Beatriz Milz
+  date: '2025-09-08'
+  path: teaching/pt/2025-09-cebrap-lab-viz-R/index.qmd
+- title: Raspagem de dados com R
+  author: Beatriz Milz
+  date: '2025-09-29'
+  path: teaching/pt/2025-09-cebrap-lab-web-scraping/index.qmd
+- title: Pacotes em R
+  author:
+  - Curso-R
+  - Athos Damiani
+  - Beatriz Milz
+  - Caio Lente
+  - Daniel Falbel
+  - Fernando Corrêa
+  - Julio Trecenti
+  - William Amorim
+  date: '2022-11-01'
+  path: teaching/pt/cursor-pacotes/index.qmd
+- title: R para Ciência de Dados I
+  author:
+  - Curso-R
+  - Athos Damiani
+  - Beatriz Milz
+  - Caio Lente
+  - Daniel Falbel
+  - Fernando Corrêa
+  - Julio Trecenti
+  - William Amorim
+  date: '2024-01-25'
+  path: teaching/pt/cursor-r4ds-1/index.qmd
+- title: Relatórios e apresentações
+  author:
+  - Curso-R
+  - Athos Damiani
+  - Beatriz Milz
+  - Caio Lente
+  - Daniel Falbel
+  - Fernando Corrêa
+  - Julio Trecenti
+  - William Amorim
+  date: '2023-11-01'
+  path: teaching/pt/cursor-relatorios/index.qmd
+- title: Visualização de dados
+  author:
+  - Curso-R
+  - Athos Damiani
+  - Beatriz Milz
+  - Caio Lente
+  - Daniel Falbel
+  - Fernando Corrêa
+  - Julio Trecenti
+  - William Amorim
+  date: '2024-03-14'
+  path: teaching/pt/cursor-visualizacao/index.qmd

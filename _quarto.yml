@@ -1,0 +1,73 @@
+project:
+  type: website
+  pre-render: pre-render-listing-content.R
+  preview:
+    port: 4200
+
+website:
+  page-navigation: true
+  title: "Fiorella Gonzales"
+  site-url: "https://fiorellafgonzalez.com/"
+  google-analytics: "G-example342423423"
+  page-footer:
+    left: "Website made with [Quarto](https://quarto.org/). Site design based on Beatriz Milz, licensed under CC BY-SA 2.0."
+    right:
+      - icon: youtube
+        href: https://www.youtube.com/
+      - icon: github
+        href: https://github.com/FiorellaLita
+      - icon: linkedin
+        href: https://www.linkedin.com/in/fiorella-gonzales-guillen-1a564154/
+      - text: "{{< ai researchgate >}}"
+        href: https://www.researchgate.net/profile/Fiorella-Gonzales-2?ev=hdr_xprf
+      - text: "{{< ai orcid >}}"
+        href: https://orcid.org/0000-0001-5240-2464
+
+
+
+  navbar:
+    right:
+      - text: About
+        menu:
+          - text: English
+            href: about.qmd
+          - text: Español
+            href: about-es.qmd
+      - text: Research
+        menu:
+          - text: Papers
+            href: papers/index.qmd
+          - text: Abstracts at conferences
+            href: papers/en.qmd
+      - text: Projects
+        href: projects/index.qmd
+      - text: Other
+        menu:
+          - text: Under construction
+            href: research/index.qmd
+      - icon: github
+        href: https://github.com/FiorellaLita
+
+lang: pt
+
+format:
+  html:
+    link-external-icon: true
+    link-external-newwindow: true
+    smooth-scroll: true
+    theme:
+      - pulse
+      - custom.scss
+    citations-hover: true
+    footnotes-hover: true
+    toc: true
+    code-link: true
+
+editor: visual
+
+comments:
+  giscus:
+    repo: FiorellaLita/blog-fg
+
+execute:
+  freeze: true

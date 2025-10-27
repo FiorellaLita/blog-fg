@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Dicas para elaborar relatórios em R – Beatriz Milz</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-e4e588590ff140abedd4e04b7954594a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2J79YYG9CZ"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Beatriz Milz</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-about" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">About</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-about">    
+        <li>
+    <a class="dropdown-item" href="../../../about.html">
+ <span class="dropdown-text">English</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../about-pt.html">
+ <span class="dropdown-text">Português</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../about-es.html">
+ <span class="dropdown-text">Español</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-posts" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Posts</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
+        <li>
+    <a class="dropdown-item" href="../../../posts/index.html">
+ <span class="dropdown-text">All posts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../posts/en.html">
+ <span class="dropdown-text">English</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../posts/pt.html">
+ <span class="dropdown-text">Português</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../posts/es.html">
+ <span class="dropdown-text">Español</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../content.html"> 
+<span class="menu-text">Talks and teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../videos/index.html"> 
+<span class="menu-text">Videos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../projects/index.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Other</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-other">    
+        <li>
+    <a class="dropdown-item" href="../../../research/index.html">
+ <span class="dropdown-text">Research (PT-BR)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../quarto.html">
+ <span class="dropdown-text">Quarto Gallery</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/beatrizmilz/blog-en"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Dicas para elaborar relatórios em R</h1>
+            <p class="subtitle lead">No blog da Curso-R, colaborei com três posts que apresentam dicas para fazer tabelas, gráficos e relatórios em R. Neste post, comentamos algumas dicas sobre elaboração de relatórios em R.</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">15 de março de 2021</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#dicas-para-elaborar-relatórios" id="toc-dicas-para-elaborar-relatórios" class="nav-link active" data-scroll-target="#dicas-para-elaborar-relatórios">Dicas para elaborar relatórios</a>
+  <ul class="collapse">
+  <li><a href="#contextualize" id="toc-contextualize" class="nav-link" data-scroll-target="#contextualize">Contextualize!</a></li>
+  <li><a href="#quem-é-o-seu-público-alvo" id="toc-quem-é-o-seu-público-alvo" class="nav-link" data-scroll-target="#quem-é-o-seu-público-alvo">Quem é o seu público-alvo?</a></li>
+  <li><a href="#controle-como-o-conteúdo-é-apresentado" id="toc-controle-como-o-conteúdo-é-apresentado" class="nav-link" data-scroll-target="#controle-como-o-conteúdo-é-apresentado">Controle como o conteúdo é apresentado!</a></li>
+  <li><a href="#tabelas" id="toc-tabelas" class="nav-link" data-scroll-target="#tabelas">Tabelas</a></li>
+  <li><a href="#código-em-linha" id="toc-código-em-linha" class="nav-link" data-scroll-target="#código-em-linha">Código em linha</a></li>
+  </ul></li>
+  <li><a href="#um-extra-escreva-sobre-assuntos-que-te-interessa" id="toc-um-extra-escreva-sobre-assuntos-que-te-interessa" class="nav-link" data-scroll-target="#um-extra-escreva-sobre-assuntos-que-te-interessa">Um extra: escreva sobre assuntos que te interessa!</a></li>
+  <li><a href="#conclusões" id="toc-conclusões" class="nav-link" data-scroll-target="#conclusões">Conclusões</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>No blog da Curso-R, colaborei com três posts que apresentam dicas para fazer tabelas, gráficos e relatórios em R. Leia os posts completos através dos links a seguir:</p>
+<ul>
+<li><p><a href="https://blog.curso-r.com/posts/2020-12-03-dicas-relatorios-r4ds1_tabelas/">Dicas para criar <strong>tabelas</strong></a></p></li>
+<li><p><a href="https://blog.curso-r.com/posts/2020-17-02-dicas-relatorios-r4ds1_graficos/">Dicas para <strong>gráficos</strong></a></p></li>
+<li><p><a href="https://blog.curso-r.com/posts/2021-03-15-dicas-relatorios-r4ds1_relatorios/">Dicas para <strong>relatórios</strong></a></p></li>
+</ul>
+<p>Olá!</p>
+<p>Este post é uma continuação dos posts onde apresentamos os trabalhos premiados no curso <a href="https://curso-r.com/cursos/r4ds-1/">R para Ciência de Dados I</a> (<a href="https://www.curso-r.com/blog/2020-12-03-dicas-relatorios-r4ds1_tabelas/">este</a> e <a href="https://blog.curso-r.com/posts/2020-17-02-dicas-relatorios-r4ds1_graficos/">este</a>).</p>
+<p>Neste post, apresentaremos algumas dicas para elaborar relatórios com o pacote <a href="https://rmarkdown.rstudio.com/"><code>rmarkdown</code></a>!</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/reproducibility_court.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Ilustração sobre o pacote rmarkdown, criada por <a href="https://github.com/allisonhorst/stats-illustrations">Allison Horst</a>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="dicas-para-elaborar-relatórios" class="level2">
+<h2 class="anchored" data-anchor-id="dicas-para-elaborar-relatórios">Dicas para elaborar relatórios</h2>
+<section id="contextualize" class="level3">
+<h3 class="anchored" data-anchor-id="contextualize">Contextualize!</h3>
+<p>A primeira dica é escrever uma introdução para ajudar a contextualizar a sua análise. Por exemplo:</p>
+<ul>
+<li><p>Qual é a pergunta que deseja responder a partir dos dados?</p></li>
+<li><p>Qual é a base de dados utilizadas? É legal também contextualizar a base.</p>
+<ul>
+<li>Qual é a fonte destes dados?</li>
+<li>De qual(ou quais) ano(s) essa base se refere?</li>
+<li>Quais são as variáveis presentes na base de dados?</li>
+</ul></li>
+</ul>
+<p>Da mesma forma, é legal também escrever uma conclusão ao final da análise. A pergunta inicial foi respondida? Se sim, qual é a resposta?</p>
+</section>
+<section id="quem-é-o-seu-público-alvo" class="level3">
+<h3 class="anchored" data-anchor-id="quem-é-o-seu-público-alvo">Quem é o seu público-alvo?</h3>
+<p>É interessante pensar tambem quem são as pessoas do seu público alvo, e adaptar o relatório para este público. Para quem você está escrevendo?</p>
+<p>Por exemplo, em um relatório de negócios, dificilmente você deixará os códigos visíveis no seu relatório. Por outro lado, em um relatório feito para as pessoas do seu time de cientistas de dados, pode ser interessante deixar os códigos para que saibam o que foi feito na análise.</p>
+</section>
+<section id="controle-como-o-conteúdo-é-apresentado" class="level3">
+<h3 class="anchored" data-anchor-id="controle-como-o-conteúdo-é-apresentado">Controle como o conteúdo é apresentado!</h3>
+<p>Os Chunks nos relatórios feitos com RMarkdown são campos de código onde podemos executar códigos em R. As <em>chunk options</em> (ou opções de chunk), definem como esse código e os resultados gerados aparecerão no relatório final. A seguir estão alguns úteis:</p>
+<ul>
+<li><p>Não é interessante aparecer mensagens de aviso (warnings) e mensagens geradas pelo código no relatório. Para ocultar essas mensagens e avisos, é possível utilizar as seguintes opções de chunk: <code>message = FALSE, warning = FALSE</code> (mas cuidado, pois essas mensagens podem não ser importantes para as pessoas leitoras do relatório, mas podem ser úteis para você!).</p></li>
+<li><p>Utilize as chunk options para personalizar como as imagens devem aparecer! Por exemplo:</p>
+<ul>
+<li><p><code>fig.align='center'</code> - para centralizar horizontalmente as imagens;</p></li>
+<li><p><code>echo=FALSE</code> - para não mostrar o código que gera as imagens;</p></li>
+<li><p><code>out.width="90%"</code> - para especificar a largura da página que deve ser ocupada pela imagem (neste exemplo, deixamos 90% para que a imagem ocupe 90% da largura disponível na página).</p></li>
+</ul></li>
+<li><p>Utilize as chunk options para personalizar como os códigos devem aparecer! Por exemplo:</p>
+<ul>
+<li><p>Apresentar o código e o resultado: <code>echo=TRUE</code></p></li>
+<li><p>Apresentar apenas o código, e não executá-lo: <code>echo=TRUE, eval=FALSE</code></p></li>
+<li><p>Apresentar apenas os resultados: <code>echo=FALSE</code></p></li>
+</ul></li>
+</ul>
+</section>
+<section id="tabelas" class="level3">
+<h3 class="anchored" data-anchor-id="tabelas">Tabelas</h3>
+<p>Quando quiser representar dados em tabelas, não esqueça de formatá-las com alguma função com essa finalidade. Por exemplo, primeiro vamos criar uma tabela pequena com os 5 personagens com maior massa presentes na base <a href="https://dplyr.tidyverse.org/reference/starwars.html">starwars</a>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carregar o pacote tidyverse</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Criar uma tabela de exemplo</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sw_top5_maiormassa <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mass)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, mass) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Podemos apresentar esses dados usando apenas o nome da base criada, porém não ficará com uma formatação legal:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sw_top5_maiormassa</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  name                   mass
+  &lt;chr&gt;                 &lt;dbl&gt;
+1 Jabba Desilijic Tiure  1358
+2 Grievous                159
+3 IG-88                   140
+4 Darth Vader             136
+5 Tarfful                 136</code></pre>
+</div>
+</div>
+<p>Podemos usar diversas funções para formatar esses dados como uma tabela organizada. Um exemplo de função é a <code>knitr::kable()</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sw_top5_maiormassa <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Nome"</span>, <span class="st">"Massa"</span>))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Nome</th>
+<th style="text-align: right;">Massa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Jabba Desilijic Tiure</td>
+<td style="text-align: right;">1358</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Grievous</td>
+<td style="text-align: right;">159</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IG-88</td>
+<td style="text-align: right;">140</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Darth Vader</td>
+<td style="text-align: right;">136</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tarfful</td>
+<td style="text-align: right;">136</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Não esqueça de conferir <a href="https://www.curso-r.com/blog/2020-12-03-dicas-relatorios-r4ds1_tabelas/">este post</a> que apresenta dicas para formatar as tabelas!</p>
+<p>Confira também outras funções úteis para gerar tabelas, como por exemplo: <a href="https://gt.rstudio.com/"><code>gt::gt()</code></a>, <a href="https://rstudio.github.io/DT/"><code>DT::datatable()</code></a>, <a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html"><code>kableExtra::kbl()</code></a> e muitas outras!</p>
+</section>
+<section id="código-em-linha" class="level3">
+<h3 class="anchored" data-anchor-id="código-em-linha">Código em linha</h3>
+<p>Podemos adicionar resultados de códigos junto aos textos, utilizando a seguinte sintaxe:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">r codigo_em_r</span><span class="st">`</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Por exemplo, podemos primeiro criar alguns objetos para usarmos no texto:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>personagem_mais_baixo <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>starwars <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(height) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>media_altura <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>starwars <span class="sc">%&gt;%</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media_altura =</span> <span class="fu">mean</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Agora podemos usar estes objetos no texto:</p>
+<blockquote class="blockquote">
+<p>A base starwars, disponível no pacote <code>{dplyr}</code>, apresenta 87 personagens presentes nos filmes. O personagem com menor altura da franquia é o Yoda, com a altura de 66 centímetros. A média da altura dos personagens presentes na base é de 1.74 metros.</p>
+</blockquote>
+<p>O código a seguir gera o parágrafo que apresentamos acima:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>A base starwars, disponível no pacote <span class="st">`</span><span class="at">{dplyr}</span><span class="st">`</span>,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>apresenta <span class="st">`</span><span class="at">r nrow(dplyr::starwars)</span><span class="st">`</span> personagens presentes nos filmes. </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>O personagem com menor altura da franquia é o <span class="st">`</span><span class="at">r personagem_mais_baixo[[1]]</span><span class="st">`</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>com a altura de <span class="st">`</span><span class="at">r personagem_mais_baixo[[2]]</span><span class="st">`</span> centímetros.</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>A média da altura dos personagens presentes na base é</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>de <span class="st">`</span><span class="at">r round(media_altura/100, 2)</span><span class="st">`</span> metros.</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Sabemos então que os personagens da série The Mandalorian não estão na base, pois o personagem Baby Yoda teria uma estatura mais baixa que o Yoda! Mas um exemplo legal sobre a utilidade do código em linha é pensar que, se algum dia atualizarem a base, este relatório ao ser gerado novamente (através do botão <code>knit</code>) teria seus resultados atualizados também!</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://media.giphy.com/media/Wn74RUT0vjnoU98Hnt/giphy.gif" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="um-extra-escreva-sobre-assuntos-que-te-interessa" class="level2">
+<h2 class="anchored" data-anchor-id="um-extra-escreva-sobre-assuntos-que-te-interessa">Um extra: escreva sobre assuntos que te interessa!</h2>
+<p>Uma última dica (que nem sempre é possível): escreva sobre temas que te interessa! As análises sempre ficam mais interessantes quando entendemos melhor os dados.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://media.giphy.com/media/3o8doOlGO3pjQa5h28/giphy.gif" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusões" class="level2">
+<h2 class="anchored" data-anchor-id="conclusões">Conclusões</h2>
+<p>Essas dicas surgiram a partir da avaliação dos trabalhos do curso <a href="https://curso-r.com/cursos/r4ds-1/">R para Ciência de Dados I</a>. Porém existem muitas outras possibilidades para elaborar relatórios! Recomendamos a leitura do <a href="https://livro.curso-r.com/9-relatorios.html">capítulo sobre relatórios</a> do livro <a href="https://livro.curso-r.com/index.html">Ciência de Dados em R</a>. Além disso, dia 18 de março começam as aulas do curso de <a href="https://curso-r.com/cursos/visualizacao/">Relatórios e visualização de dados</a>, então se você tem interesse nesse tema, confira a página do curso!</p>
+<p>E caso você tenha interesse em saber mais sobre os outros cursos, confira a <a href="https://www.curso-r.com/cursos/">página de cursos</a>!</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/beamilz\.com\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "beatrizmilz/blog-en";
+    script.dataset.repoId = "R_kgDOHc0DoQ";
+    script.dataset.category = "General";
+    script.dataset.categoryId = "DIC_kwDOHc0Doc4CPeUR";
+    script.dataset.mapping = "title";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "top";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "en";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Website made with <a href="https://quarto.org/">Quarto</a>, by Beatriz Milz. License: <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:milz.bea@gmail.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@beamilz">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/beatrizmilz.bsky.social">
+<p><iconify-icon role="img" inline="" icon="simple-icons:bluesky" aria-label="Icon bluesky from simple-icons Iconify.design set." title="Icon bluesky from simple-icons Iconify.design set."></iconify-icon></p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/beatrizmilz">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/beatrizmilz/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.researchgate.net/profile/Beatriz-Milz">
+<p><i class="ai  ai-researchgate"></i></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="http://lattes.cnpq.br/5150665880581477">
+<p><i class="ai  ai-lattes"></i></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://orcid.org/0000-0002-3064-4486">
+<p><i class="ai  ai-orcid"></i></p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/bea.milz/">
+      <i class="bi bi-instagram" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

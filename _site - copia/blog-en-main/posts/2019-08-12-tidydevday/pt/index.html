@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Beatriz Milz">
+<meta name="author" content="Angélica Custódio">
+
+<title>Tidyverse developer day 2019 (tidy-dev-day) – Beatriz Milz</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-e4e588590ff140abedd4e04b7954594a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<link href="../../../../site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2J79YYG9CZ"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title">Beatriz Milz</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-about" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">About</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-about">    
+        <li>
+    <a class="dropdown-item" href="../../../../about.html">
+ <span class="dropdown-text">English</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../about-pt.html">
+ <span class="dropdown-text">Português</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../about-es.html">
+ <span class="dropdown-text">Español</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-posts" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Posts</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
+        <li>
+    <a class="dropdown-item" href="../../../../posts/index.html">
+ <span class="dropdown-text">All posts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../posts/en.html">
+ <span class="dropdown-text">English</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../posts/pt.html">
+ <span class="dropdown-text">Português</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../posts/es.html">
+ <span class="dropdown-text">Español</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../content.html"> 
+<span class="menu-text">Talks and teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../videos/index.html"> 
+<span class="menu-text">Videos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../projects/index.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Other</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-other">    
+        <li>
+    <a class="dropdown-item" href="../../../../research/index.html">
+ <span class="dropdown-text">Research (PT-BR)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../quarto.html">
+ <span class="dropdown-text">Quarto Gallery</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/beatrizmilz/blog-en"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Tidyverse developer day 2019 (tidy-dev-day)</h1>
+            <p class="subtitle lead">Este post tem como objetivo relatar a experiência de participar do Tidyverse Developer Day 2019.</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Events</div>
+                <div class="quarto-category">Communities</div>
+                <div class="quarto-category">tidyverse</div>
+                <div class="quarto-category">RStudio</div>
+                <div class="quarto-category">R Packages</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autores</div>
+      <div class="quarto-title-meta-contents">
+               <p>Beatriz Milz </p>
+               <p>Angélica Custódio </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">12 de agosto de 2019</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#o-tidy-dev-day" id="toc-o-tidy-dev-day" class="nav-link active" data-scroll-target="#o-tidy-dev-day">O tidy-dev-day</a></li>
+  <li><a href="#como-funcionou-o-evento" id="toc-como-funcionou-o-evento" class="nav-link" data-scroll-target="#como-funcionou-o-evento">Como funcionou o evento?</a></li>
+  <li><a href="#experiência-pessoal---bea" id="toc-experiência-pessoal---bea" class="nav-link" data-scroll-target="#experiência-pessoal---bea">Experiência pessoal - Bea</a></li>
+  <li><a href="#experiência-pessoal---angélica" id="toc-experiência-pessoal---angélica" class="nav-link" data-scroll-target="#experiência-pessoal---angélica">Experiência pessoal - Angélica</a></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão">Conclusão</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p><a href="../../../../blog-en-main/posts/2019-08-12-tidydevday/en/index.html"> <button type="button" class="btn btn-primary">English</button></a> <a href="../../../../blog-en-main/posts/2019-08-12-tidydevday/pt/index.html"> <button type="button" class="btn btn-primary">Português</button></a></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Dica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Esse post foi origalmente publicado no <a href="https://blog.curso-r.com/posts/2019-08-12-tidydevday/">blog da Curso-R</a>.</p>
+</div>
+</div>
+<p>Este post tem como objetivo relatar a experiência de participar do Tidyverse Developer Day 2019, e tem como autoras a <a href="https://beatrizmilz.com">Beatriz Milz</a> e a <a href="https://www.linkedin.com/in/angelicacustodio/">Angélica Custódio</a>. A Bea é doutoranda em Ciência Ambiental na USP, e é uma das co-organizadoras do <a href="https://www.meetup.com/rladies-sao-paulo/">R-Ladies São Paulo</a>, que é uma organização que tem como objetivo promover a diversidade de gênero na comunidade da linguagem R. A Angélica é formada em estatística pela UFSCar, e mestranda em Ciência da Computação na UFABC, também faz parte do <a href="https://www.meetup.com/rladies-sao-paulo/">R-Ladies São Paulo</a> e do <a href="https://www.meetup.com/PyLadiesSP/">PyLadies São Paulo</a>.</p>
+<section id="o-tidy-dev-day" class="level2">
+<h2 class="anchored" data-anchor-id="o-tidy-dev-day">O tidy-dev-day</h2>
+<p>O <a href="https://github.com/tidyverse/dev-day-2019">Tidyverse Developer Day</a> (tidy-dev-day) é um evento com duração de um dia, onde os participantes aprendem mais sobre como contribuir com o <a href="https://www.tidyverse.org/">tidyverse</a>. O evento relatado aqui foi a segunda edição, sendo que a primeira aconteceu na <a href="https://resources.rstudio.com/tidyverse/tidyverse-developer-day-2019">rstudio::conf2019</a>.</p>
+<p>Nesta edição, o tidy-dev-day foi à parte da conferência <a href="https://user2019.r-project.org/">useR!2019</a>, que ocorreu em Toulouse, na França. O evento ocorreu um dia antes do início da conferência, reunindo diversas pessoas que participaram dela.</p>
+<p>Algo a destacar é que a organização da <a href="https://user2019.r-project.org/">useR!2019</a> selecionou pessoas para serem contempladas com bolsas de diversidade, fornecendo ajuda financeira a membros de grupos sub-representados na comunidade de R, ou historicamente marginalizados. Essa iniciativa foi fundamental para a participação de diversas pessoas, de diferentes partes do mundo. Inclusive para as duas pessoas que estão escrevendo agora sobre a experiência lá.</p>
+</section>
+<section id="como-funcionou-o-evento" class="level2">
+<h2 class="anchored" data-anchor-id="como-funcionou-o-evento">Como funcionou o evento?</h2>
+<p>O evento aconteceu no mesmo espaço da <a href="https://user2019.r-project.org/">useR!2019</a>, e tinha um <a href="https://github.com/tidyverse/dev-day-2019/blob/master/CODE_OF_CONDUCT.md">código de conduta</a>, com o objetivo de oferecer um ambiente seguro e amigável para todos os participantes. O evento não foi gratuito: foi necessário pagar uma taxa de $10 (dez dólares), com o intuito de diminuir o número de pessoas que se inscreve e não comparece no evento. No entanto, a organização aponta que o dinheiro será doado.</p>
+<p>Como o objetivo do evento é proporcionar um aprendizado sobre como contribuir com desenvolvimento e manutenção do tidyverse, estavam presentes diversos desenvolvedores e mantenedores do tidyverse, e também um time para ajudar os participantes, tirar dúvidas, etc.</p>
+<p>O material utilizado (instruções, apresentações, sugestões de material, etc) está disponível <a href="https://github.com/tidyverse/dev-day-2019">neste repositório no GitHub</a>.</p>
+<p>Em uma parede no fundo da sala, haviam diversos post-its que indicavam issues a serem trabalhadas, e estavam separadas por pacotes, e também por cor, onde a cor indicava o tipo de issue (documentação, bug, feature). Os participantes escolhiam uma issue para trabalhar durante o evento, até a realização de um pull request. Em outra parede, os post-its estavam separados em: post-its de pull requests para serem avaliados pelo <a href="http://hadley.nz/">Hadley Wickham</a> e outros contribuidores, e os post-its que já tinham sido avaliados e aceitos!</p>
+<p>Outra coisa legal é que o espaço disponibilizou diversas mesas agrupadas, o que ajudava a trabalhar em conjunto.</p>
+<p><img src="https://i.imgur.com/Oz6x6GY.jpg" class="img-fluid"></p>
+<p><strong>Legenda:</strong> Foto tirada no tidy-dev-day, por <a href="https://twitter.com/Dale_Masch">@Dale_Masch</a>.</p>
+<p>Para quem estava participando pela primeira vez eram recomendadas as issues de documentação, pois elas são mais naturais para quem nunca fez esse tipo de atividade antes. Para as pessoas que já tinham mais familiaridade eram recomendadas issues de bug ou feature que já exigem um conhecimento maior não só do pacote, mas também de como desenvolver a melhoria.</p>
+</section>
+<section id="experiência-pessoal---bea" class="level2">
+<h2 class="anchored" data-anchor-id="experiência-pessoal---bea">Experiência pessoal - Bea</h2>
+<p>Eu nunca desenvovi um pacote, e ao chegar no evento nem sabia como pacotes eram estruturados. Na <a href="https://github.com/tidyverse/dplyr/issues/3698">issue que eu escolhi</a>, o objetivo era para melhorar uma mensagem de erro da função <code>filter()</code>, do pacote <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a>, para que a mensagem estivesse de acordo com o <a href="https://style.tidyverse.org/">style guide do tidyverse</a>. <img src="https://i.imgur.com/VYgvY7k.jpg" class="img-fluid"></p>
+<p><strong>Legenda:</strong> Foto da issue que estava trabalhando, e também da moeda especial que recebemos, por <a href="https://www.linkedin.com/in/beatrizmilz/">@Bea_Milz</a>.</p>
+<p>Inicialmente, eu fiz o fork do repositório do dplyr, o clone no meu computador, e fiquei sem saber o que fazer depois. Eu não sabia em qual diretório ficavam as funções, estava com receio de alterar algo e causar algum erro em outras funções do pacote… Mas ainda bem que tive ajuda! A <a href="https://ildiczeller.com/">Ildi Czeller</a> me mostrou em qual diretório as funções estavam (aliás, é no <code>/R</code>), e e então consegui encontrar o arquivo que precisava alterar, e qual parte do código era correspondente à função <code>filter()</code>. Uma coisa que conheci no evento e foi muito interessante é o conceito de testes, pois tive que alterar o teste referente à mensagem de erro que eu estava trabalhando.</p>
+<p>Após fazer as alterações que entendi que eram necessárias, fiz um <a href="https://github.com/tidyverse/dplyr/pull/4477">pull request</a>. O Hadley respondeu que outra pessoa também estava trabalhando neste tópico (haviam duas issues criadas para o mesmo problema), e indicou onde a pessoa estava sentada. Então fui lá e perguntei para o <a href="https://github.com/rundel">Colin</a> (que estava trabalhando nesse mesmo problema) se poderíamos trabalhar na issue juntos. Ele foi super receptivo! Ele explicou como ele estava resolvendo, e eu também mostrei o que havia feito. O Hadley pediu para mudar uma função usada no teste, e ficamos trabalhando nisso juntos (no caso, eu estava mais aprendendo e perguntando para o Colin, pois os testes eram novidade para mim).</p>
+<p><img src="https://i.imgur.com/zllw6qX.png" class="img-fluid"></p>
+<p><strong>Legenda:</strong> O <a href="https://github.com/tidyverse/dplyr/pull/4476">pull request</a> foi aceito!</p>
+<p>Foi uma experiência única, e aprendi muito nesse dia!</p>
+</section>
+<section id="experiência-pessoal---angélica" class="level2">
+<h2 class="anchored" data-anchor-id="experiência-pessoal---angélica">Experiência pessoal - Angélica</h2>
+<p>Durante o tidy-dev-day trabalhei em issues do <a href="https://ggplot2.tidyverse.org/">ggplot2</a>, foi uma experiência totalmente nova para mim e foi super gratificante a sensação de que eu aprendi e também pude contribuir.</p>
+<p>No evento havia vários monitores facilitando a atividade, eles ajudavam desde como fazer o fork no github e trabalhar a issue no R até como fazer o pull request para fechar a issue. Contei com a ajuda da <a href="https://ildiczeller.com/">Ildi Czeller</a> que era uma das monitoras e me auxiliou em todas as etapas, dando dicas desde configurações no git até ensinando atalhos no Rstudio que facilitaram a vida (estão documentados <a href="https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts">aqui</a>).</p>
+<p><img src="https://i.imgur.com/Svktt2C.png" class="img-fluid"></p>
+<p><strong>Legenda:</strong> Criando um pull request no pacote ggplot2.</p>
+<p>A atividade promoveu o engajamento e contribuição de todos, desde de quem era novato até quem já tinha bastante experiência. Era um espaço aberto para tirar dúvidas e pedir ajuda, em um determinado momento pude conversar com o <a href="http://hadley.nz/">Hadley</a> e tirar dúvida sobre uma issue que eu estava trabalhando. Entender melhor qual era a interpretação de melhoria daquele ponto com um dos autores do pacote foi um aprendizado incrível.</p>
+</section>
+<section id="conclusão" class="level2">
+<h2 class="anchored" data-anchor-id="conclusão">Conclusão</h2>
+<p>Segundo o <a href="http://hadley.nz/">Hadley</a>, mais de 40 pull requests foram aceitos, e quase 30 precisavam ser revisados, o que mostra como o evento :</p>
+<blockquote class="twitter-tweet blockquote" data-lang="en">
+<p lang="en" dir="ltr">
+</p><p>Huge thanks to everyone who contributed to tidyverse developer day! We merged over 40 PRs and have almost 30 more to review over the next few days <a href="https://t.co/uM9Tg1dMeX">pic.twitter.com/uM9Tg1dMeX</a></p>
+<p></p>
+<p>— Hadley Wickham (<span class="citation" data-cites="hadleywickham">@hadleywickham</span>) <a href="https://twitter.com/hadleywickham/status/1148252922272190464?ref_src=twsrc%5Etfw">July 8, 2019</a></p>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>Foi uma ótima oportunidade para conhecer pessoas novas também! E para conhecer pessoalmente muitas referências que temos na comunidade.</p>
+<p><img src="https://i.imgur.com/oWtQFxi.jpg" class="img-fluid"></p>
+<p><strong>Legenda:</strong> Angélica e Bea mostrando as issues que estavam trabalhando no tidy-dev-day, por <a href="https://twitter.com/angcustodio">AngCustodio</a>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/beamilz\.com\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "beatrizmilz/blog-en";
+    script.dataset.repoId = "R_kgDOHc0DoQ";
+    script.dataset.category = "General";
+    script.dataset.categoryId = "DIC_kwDOHc0Doc4CPeUR";
+    script.dataset.mapping = "title";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "top";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "en";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Website made with <a href="https://quarto.org/">Quarto</a>, by Beatriz Milz. License: <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:milz.bea@gmail.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@beamilz">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/beatrizmilz.bsky.social">
+<p><iconify-icon role="img" inline="" icon="simple-icons:bluesky" aria-label="Icon bluesky from simple-icons Iconify.design set." title="Icon bluesky from simple-icons Iconify.design set."></iconify-icon></p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/beatrizmilz">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/beatrizmilz/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.researchgate.net/profile/Beatriz-Milz">
+<p><i class="ai  ai-researchgate"></i></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="http://lattes.cnpq.br/5150665880581477">
+<p><i class="ai  ai-lattes"></i></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://orcid.org/0000-0002-3064-4486">
+<p><i class="ai  ai-orcid"></i></p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/bea.milz/">
+      <i class="bi bi-instagram" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

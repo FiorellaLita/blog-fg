@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="R Consortium">
+<meta name="description" content="Beatriz Milz, a co-organizer of R-Ladies São Paulo, recently spoke with the R Consortium about the vibrant growth of the R community in São Paulo and its commitment to inclusivity and accessible learning.">
+
+<title>Repost: Books, Beginners, and Big Ideas: Beatriz Milz on Fostering R-Ladies São Paulo’s Vibrant Community – Beatriz Milz</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-e4e588590ff140abedd4e04b7954594a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2J79YYG9CZ"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Beatriz Milz</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-about" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">About</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-about">    
+        <li>
+    <a class="dropdown-item" href="../../../about.html">
+ <span class="dropdown-text">English</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../about-pt.html">
+ <span class="dropdown-text">Português</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../about-es.html">
+ <span class="dropdown-text">Español</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-posts" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Posts</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
+        <li>
+    <a class="dropdown-item" href="../../../posts/index.html">
+ <span class="dropdown-text">All posts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../posts/en.html">
+ <span class="dropdown-text">English</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../posts/pt.html">
+ <span class="dropdown-text">Português</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../posts/es.html">
+ <span class="dropdown-text">Español</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../content.html"> 
+<span class="menu-text">Talks and teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../videos/index.html"> 
+<span class="menu-text">Videos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../projects/index.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Other</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-other">    
+        <li>
+    <a class="dropdown-item" href="../../../research/index.html">
+ <span class="dropdown-text">Research (PT-BR)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../quarto.html">
+ <span class="dropdown-text">Quarto Gallery</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/beatrizmilz/blog-en"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Repost: Books, Beginners, and Big Ideas: Beatriz Milz on Fostering R-Ladies São Paulo’s Vibrant Community</h1>
+                  <div>
+        <div class="description">
+          Beatriz Milz, a co-organizer of R-Ladies São Paulo, recently spoke with the R Consortium about the vibrant growth of the R community in São Paulo and its commitment to inclusivity and accessible learning.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Repost</div>
+                <div class="quarto-category">Community</div>
+                <div class="quarto-category">R-Ladies</div>
+                <div class="quarto-category">R-Ladies São Paulo</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor</div>
+      <div class="quarto-title-meta-contents">
+               <p>R Consortium </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">23 de dezembro de 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#how-do-i-build-an-r-user-group" id="toc-how-do-i-build-an-r-user-group" class="nav-link active" data-scroll-target="#how-do-i-build-an-r-user-group">How do I Build an R User Group?</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p><a href="../../../posts/2024-12-23-repost-rconsortium/en/index.html"> <button type="button" class="btn btn-primary">English</button></a> <a href="../../../posts/2024-12-23-repost-rconsortium/pt/index.html"> <button type="button" class="btn btn-primary">Português</button></a></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is a repost, and the original article can be found <a href="https://r-consortium.org/posts/books-beginners-big-ideas-beatriz-milz-fostering-r-ladies-sao-paulo-community/">in the R Consortium website</a>.</p>
+</div>
+</div>
+<p><a href="https://beamilz.com/about">Beatriz Milz</a>, a co-organizer of <a href="https://www.meetup.com/rladies-sao-paulo/?eventOrigin=event_home_page">R-Ladies São Paulo</a>, recently spoke with the R Consortium about the vibrant growth of the R community in São Paulo and its commitment to inclusivity and accessible learning. Beatriz shared insights into the group’s activities, from organizing popular in-person and online events to coordinating a book club focused on the newly translated R for Data Science in Portuguese. She also discussed the unique needs of R users in Brazil and how R-Ladies São Paulo supports beginners and advanced users through collaborative events and community-driven resources.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="BeatrizMilz.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<p><strong>Please share your background and involvement with the RUGS group.</strong></p>
+<p>My background includes a bachelor’s degree in environmental management, a master’s in environmental analysis, and a PhD in environmental sciences. During my master’s program, my supervisor mentioned that I needed to learn R to analyze the data we were collecting. However, no one in the lab was familiar with R or able to assist me. I attempted to learn it independently, but that didn’t work well.</p>
+<p>Eventually, my supervisor connected me with another professor, and a postdoc in his lab helped me with the analysis for my master’s dissertation. While that assistance was beneficial, I felt uncomfortable relying on others to conduct the analysis. After finishing my master’s and before starting my doctorate, I decided that I wanted to learn how to program so I wouldn’t have to depend so heavily on fellow researchers for data analysis.</p>
+<p>I started trying to learn R again after a friend mentioned the R-Ladies group. In 2018, I discovered that a new group was starting in São Paulo. I attended their first event, which was an incredible experience. Around that time, I began to learn R.</p>
+<p>In São Paulo, we don’t just organize events; we also have a group on <a href="https://telegram.org/">Telegram</a> where we can communicate between events. It allowed me to ask for recommendations on learning materials, pose questions, and receive help from others in the group. This support was invaluable to my learning process.</p>
+<p>Two months after getting involved, I began helping in the group. Initially, the group was relatively new, and one person mainly did most of the organizing tasks: <a href="https://www.linkedin.com/in/hsvab/?originalSubdomain=br">Haydee Svab</a>. She expressed a need for assistance, not just with R-related tasks but also with organizing events. So, I started to help, and I am still one of the co-organizers today, while Haydee remains the lead co-organizer.</p>
+<p>It’s been six years since I began participating in the group, and I’m currently a postdoc involved in much work with R.</p>
+<p><strong>Can you share what the R community is like in São Paulo?</strong></p>
+<p>Our group consists of researchers from various fields who want to learn R or have already used it. Many journalists started using R a few years ago and joined our group. Now, these journalists often invite other journalists. We have many journalists who need to learn R to analyze public data from the government for their journalistic work in newspapers.</p>
+<p>We also have many members with a background in Statistics. Since most university courses typically use R, students joining our group already have experience with it from their undergraduate studies. Additionally, many individuals from the industry use R for consultancy in various fields. I am currently doing a postdoc, but I also worked with consultants for two years, during which time I used R extensively.</p>
+<p><strong>In R-Ladies São Paulo, how many events are typically held each year?</strong></p>
+<p>It varies. This year, we hosted two in-person and many more online events—11. We held an average of 6.5 events per year. However, this year, we focused more on online events and had fewer in-person ones, mostly because booking venues for in-person events has been more difficult.</p>
+<p><img src="R-LadiesSaoPauloEvents.png" class="img-fluid"></p>
+<p><strong>Regarding your experience, are people more interested in online or in-person events?</strong></p>
+<p>People engage more in in-person events. They look forward to attending these events because we usually have limited seats, which fill up quickly. We often have a waiting list for those who want to attend. If someone cancels, we can soon offer their spot to someone on the waiting list.</p>
+<p>On the other hand, online events tend to have a different pattern of participation. Fewer people attend in real-time, but many engage later by watching the recorded sessions and leaving comments. This flexibility allows those who cannot participate live to catch up afterwards.</p>
+<p>While online events can have a broader impact on reaching a larger audience, in-person events typically draw more attendees at once. For instance, we have a <a href="https://www.youtube.com/c/RLadiesS%C3%A3oPaulo">YouTube</a> channel where we post recordings of our online events. One particular event we held during the pandemic garnered 13,000 views, demonstrating significant engagement after the event. However, only some online events achieve that level of viewership; the median for recorded events is 330 views. Nevertheless, I see value in these recordings, as they provide material for those who want to engage later. Sometimes, people are simply not available to attend live.</p>
+<p><strong>Please provide us with an update on your group’s recent activities.</strong></p>
+<p><img src="R-LadiesSaoPaulo.png" class="img-fluid"></p>
+<p>I wanted to discuss a series of events related to the book club we’re hosting. In Brazil, we speak Brazilian Portuguese. An editorial group published the highly regarded book <a href="https://r4ds.hadley.nz/">R for Data Science</a> in Portuguese. The first edition is available only through purchase, but the English version is free online.</p>
+<p>Some communities have done volunteer translations; for instance, there is a <a href="https://es.r4ds.hadley.nz/">Spanish</a> version. When I learned that a second edition of the book was being written, I contacted the authors to ask if we could translate it into Portuguese with the community’s help. It took some time because the authors needed approval from O’Reilly, the publishing company producing the book.</p>
+<p>We received confirmation that we could begin the translation. The book’s second edition has <a href="https://pt.r4ds.hadley.nz/">been translated and is now available in Portuguese</a>! The translation team is not limited to the R Ladies community; it includes contributions from more than 20 people from different backgrounds.</p>
+<p>This book club focuses on discussing the translated Portuguese version of the book. Since February, we have held online meetings to discuss the book chapters. Members from the R Ladies community present these discussions, allowing participants to ask questions and engage in dialogue. These events have been working well.</p>
+<p>I have been referencing this book whenever someone asks for material. Many people will already be familiar with it as we continue to promote it. We have also been using and sharing this resource extensively.</p>
+<p>Now, the book’s second edition is available in Portuguese <a href="https://cienciadedatos.github.io/pt-r4ds/">online</a> and for free, so anyone with an internet connection can access it. It is an excellent way to share knowledge for those who can afford to buy the book and for anyone with internet access, making it a valuable study resource.</p>
+<p><strong>What are some trending topics from the group?</strong></p>
+<p>Our events with introductory content attract more participants. It is likely because many attendees are either new to the subject or at an intermediate level, where they feel comfortable studying independently. The most popular topics are introductory sessions.</p>
+<p>However, when we asked participants about their interests in different topics, many wanted to learn about machine learning and other trending subjects like deep learning and artificial intelligence. The challenge is that we need more experienced individuals to teach these advanced topics. While many people are interested in these areas, organizing events around them can be more difficult due to the complexity involved.</p>
+<p><strong>What techniques do you recommend for planning or conducting the event? (e.g., GitHub, Zoom, etc.) Can these techniques help make your group more inclusive for people unable to attend in-person events in the future?</strong></p>
+<p>We use <a href="https://streamyard.com/">StreamYard</a> for our online events. The free version has proven helpful. Previously, when we hosted events on Zoom, we needed to edit recordings and upload them afterwards. This process often took a while, mainly because everyone was busy, and it delayed recording the events online. StreamYard has made the process easier for us, although it does offer less space for participant interaction.</p>
+<p>We have a chat feature with StreamYard, but participants can also share their screens on Zoom. Therefore, the platform we choose depends on the kind of event we want to conduct. Participants must share their screens for some events, so we opt for Google Meet or Zoom.</p>
+<p>One significant improvement has been our use of <a href="https://github.com/R-Ladies-Sao-Paulo">GitHub</a>. We created issue templates as a to-do list for organizing our upcoming events. This system helps us remember everything we need to do.</p>
+<p>Additionally, we have a <a href="https://rladies-sp.org/">blog</a> that invites community members to contribute articles. It allows individuals to write about interesting topics regardless of expertise. Some people hesitate to present at events but feel comfortable writing blog posts. It serves as their first contribution or participation in our community, shifting them from just participants to active contributors.</p>
+<p>Overall, the blog is an excellent way to encourage people to make their first contributions.</p>
+<section id="how-do-i-build-an-r-user-group" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-i-build-an-r-user-group">How do I Build an R User Group?</h2>
+<p>R Consortium’s R User Group and Small Conference Support Program (RUGS) provides grants to help R groups organize, share information, and support each other worldwide. We have given grants over the past four years, encompassing over 76,000 members in over 90 user groups in 39 countries. We would like to include you! Cash grants and meetup.com accounts are awarded based on the intended use of the funds and the amount of money available to distribute.</p>
+<p><a href="https://r-consortium.org/all-projects/rugsprogram.html" class="uri">https://r-consortium.org/all-projects/rugsprogram.html</a></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/beamilz\.com\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "beatrizmilz/blog-en";
+    script.dataset.repoId = "R_kgDOHc0DoQ";
+    script.dataset.category = "General";
+    script.dataset.categoryId = "DIC_kwDOHc0Doc4CPeUR";
+    script.dataset.mapping = "title";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "top";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "en";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Website made with <a href="https://quarto.org/">Quarto</a>, by Beatriz Milz. License: <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:milz.bea@gmail.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@beamilz">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/beatrizmilz.bsky.social">
+<p><iconify-icon role="img" inline="" icon="simple-icons:bluesky" aria-label="Icon bluesky from simple-icons Iconify.design set." title="Icon bluesky from simple-icons Iconify.design set."></iconify-icon></p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/beatrizmilz">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/beatrizmilz/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.researchgate.net/profile/Beatriz-Milz">
+<p><i class="ai  ai-researchgate"></i></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="http://lattes.cnpq.br/5150665880581477">
+<p><i class="ai  ai-lattes"></i></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://orcid.org/0000-0002-3064-4486">
+<p><i class="ai  ai-orcid"></i></p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/bea.milz/">
+      <i class="bi bi-instagram" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

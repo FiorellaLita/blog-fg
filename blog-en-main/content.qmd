@@ -1,0 +1,58 @@
+---
+title: "Content"
+listing:
+  - id: content-future
+    contents:
+      - content_data_futura.yaml
+    type: grid
+    fields: [image, date, title, event, subtitle]
+    sort: "date"
+    categories: cloud
+    sort-ui: true
+    filter-ui: true
+    page-size: 100   
+    field-display-names:
+      event: "Event"    
+  - id: content-past
+    contents: 
+      - content_data_passado.yaml
+    type: grid
+    fields: [image, date, title, subtitle, event]
+    sort: "date desc"
+    categories: cloud
+    sort-ui: true
+    filter-ui: true
+    page-size: 100  
+    field-display-names:
+      event: "Event"                 
+page-layout: full
+title-block-banner: false
+toc: true
+---
+
+Presentations, workshops, and other content that I have created or participated in.
+
+```{r}
+#| echo: false
+conteudo_futuro <- yaml::read_yaml("content_data_futura.yaml") |> 
+  length()
+
+conteudo_passado <- yaml::read_yaml("content_data_passado.yaml") |>
+  length()
+```
+
+For invitations, please email me at: [milz.bea\@gmail.com](mailto:milz.bea@gmail.com){.email}
+
+## Future content
+
+Here you can find links, slides and materials for **`r conteudo_futuro` future activities** that I will be participating in!
+
+::: {#content-future}
+:::
+
+## Past content
+
+Here you can find links, slides and materials for **`r conteudo_passado` past activities** that I have participated in **since 2018**!
+
+::: {#content-past}
+:::

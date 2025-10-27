@@ -1,0 +1,29 @@
+---
+title: "Fiorella Gonzales Guillén"
+subtitle: "PhD in Biological Sciences at the Pontifical Catholic University of Chile"
+page-layout: full
+title-block-banner: false
+toc: false
+about:
+  template: jolla
+  image: Fiorella.jpg
+---
+
+Hi! I'm Fiorella. This is my **personal website**.
+My work focuses on community ecology, macroecological patterns, and biodiversity conservation. I am a research associate at the Natural History Museum of the National University of San Agustín (Peru), a member of the Global Tree Specialist Group and the Species Survival Commission (SSC) at the UICN. Currently, as a model for research, I work on dry ecosystems such as coastal lomas.
+👩‍💻 [about](about.qmd) (en) \| [acerca de mi](about-es.qmd) (es)
+
+📑 [blog posts](posts/en.qmd) (en) \| [textos](posts/pt.qmd) (pt-br)\| [textos](posts/es.qmd) (es)
+
+👩‍🏫 [talks, workshops, etc](content.qmd)
+
+📚 [projects / projetos](projects/index.qmd)
+
+🎓 [research / pesquisa](research/index.qmd) (under construction 🚧)
+
+::: callout-note
+## In which language is this website?
+
+
+My native language is Spanish (pt-br), but I have presented/created content also in English and Spanish. This blog has content in those 2 languages, but not everything is translated. If you want to see a specific post translated, please let me know!
+:::

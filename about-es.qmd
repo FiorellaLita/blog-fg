@@ -1,0 +1,41 @@
+---
+title: "Fiorella Gonzales"
+image: Fiorella.jpg
+about:
+  template: trestles
+  links:
+    - icon: github
+      text: GitHub
+      href: https://github.com/FiorellaLita     
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/fiorella-gonzales-guillen-1a564154/ 
+    - text: "{{< ai researchgate >}} Research Gate"
+      href: https://www.researchgate.net/profile/Fiorella-Gonzales-2?ev=hdr_xprf
+    - text: "{{< ai orcid >}} ORCID"
+      href: https://orcid.org/0000-0001-5240-2464
+---
+
+<center>
+
+::: {.btn-group role="group" aria-label="About"}
+<a href="about.html"> <button type="button" class="btn btn-primary me-md-2 btn-sm">English</button></a><a href="about-es.html"> <button type="button" class="btn btn-primary me-md-2 btn-sm">Español</button></a>
+:::
+
+</center>
+
+::: {#hero-heading}
+- **Formación Académica:** Fiorella Gonzales tiene un <strong>Doctorado</strong> en Ciencias Biológicas con mención en Ecología. 
+    Fiorella investiga patrones espaciales de la biodiversidad desde una perspectiva macroecológica. 
+    Está interesada en ecosistemas secos como lo son los desiertos, lomas costeras y ecosistemas tropicales. 
+    Además, tiene experiencia evaluando vertebrados neotropicales con énfasis en mamíferos y aves. 
+    Actualmente está en busca de realizar un postdoctorado enfocado en evaluar patrones macroecológicos.
+	
+  <p><strong>• Egresado de la Maestría en Auditoría y Gestión Ambiental</strong>, Universidad Nacional de San Agustín, Perú (2017–2022).</p>
+  <p><strong>• Maestría en Ciencias Biológicas</strong>, Pontificia Universidad Católica de Chile, Chile (2018–2019).</p>
+  <p><strong>• Biólogo</strong>, Facultad de Ciencias Biológicas, Universidad Nacional de San Agustín, Perú (2006–2014).</p>
+
+- **Enseñanza:** Es docente de pregrado desde el 2023, dictando cursos relacionados a Redacción científica, Formación para la Investigación y Taller de investigación. Además dicta el curso de Ecología en posgrado desde el 2025. Cuenta con experiencia enseñando cursos de recuperación a alumnos de primaria durante la pandemia Covid-19.
+
+- **Afiliaciones:** Museo de Historia Natural de la Universidad Nacional de San Agustin (Investigador asociado), Global Tree Specialist Group UICN (miembro del Advisory committee), Specialist Survival Group UICN (Member).
+:::

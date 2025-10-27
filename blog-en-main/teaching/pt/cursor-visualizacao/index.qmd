@@ -1,0 +1,48 @@
+---
+# THIS FILE WAS CONVERTED FROM BLOGDOWN!
+toc: true
+author: 
+  - Curso-R
+  - Athos Damiani
+  - Beatriz Milz  
+  - Caio Lente
+  - Daniel Falbel
+  - Fernando Corrêa
+  - Julio Trecenti
+  - William Amorim
+categories: ["Curso", "Português", "ggplot2", "tidyverse", "Visualização de dados", "geobr"]
+date: '2024-03-14'
+event: Curso-R
+event_url: https://loja.curso-r.com/
+links:
+- icon: images
+  icon_pack: far
+  name: GitHub
+  url: https://github.com/curso-r/202403-visualizacao
+- icon: images
+  icon_pack: far
+  name: Materiais
+  url: https://curso-r.github.io/202403-visualizacao
+location: Online
+title: Visualização de dados
+image: featured.png
+---
+
+```{r}
+#| echo: false
+#| results: asis
+source(here::here("R/utils.R"))
+read_yaml_talks_pt()
+```
+
+------------------------------------------------------------------------
+
+**Turmas que participei como professora ou monitora:**
+
+-   <https://curso-r.github.io/202403-visualizacao>
+
+-   <https://curso-r.github.io/202308-visualizacao>
+
+-   <https://curso-r.github.io/202303-visualizacao>
+
+-   <https://curso-r.github.io/202210-visualizacao>

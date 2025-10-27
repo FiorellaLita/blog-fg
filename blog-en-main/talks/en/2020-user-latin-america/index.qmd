@@ -1,0 +1,56 @@
+---
+# THIS FILE WAS CONVERTED FROM BLOGDOWN!
+toc: true
+author: 
+  - Laura Acion
+  - Marcela Alfaro
+  - Zullema Bazurto Blacio
+  - Yanina Bellini Saibene
+  - Elio Campitelli
+  - Joselyn Chávez
+  - Ruth Chirinos
+  - Leonardo Collado Torres
+  - Paola Corrales
+  - Florencia D'Andrea
+  - Gabriela de Queiroz
+  - Denisse Fierro Arcos
+  - Agustin Gomez Melendez
+  - Rocío Joo
+  - Mauro Lepore
+  - Paula Andrea Martinez
+  - Beatriz Milz
+  - Marcos Prunello
+  - Riva Quiroga
+  - Paloma Rojas Saunero
+  - Yuriko Sosa Paredes
+  - Frans Van Dunné
+  - Luis D. Verde Arregoitia
+  - Roxana Villafañe
+categories: ["Community", "English", "LatinR"]
+date: '2020-07-08'
+event: useR! 2020
+event_url: https://user2020.r-project.org/
+links:
+- icon: video
+  icon_pack: fa
+  name: Video
+  url: https://youtu.be/gtRntU2J3Cg
+location: Online
+title: Communities of practice in Latin America
+subtitle: R and Friends
+image: featured.png
+---
+
+```{r}
+#| echo: false
+#| results: asis
+source(here::here("R/utils.R"))
+read_yaml_talks_pt()
+```
+
+------------------------------------------------------------------------
+
+Extras:
+
+-   Blog da [RConsortium](https://www.r-consortium.org/):
+    -   [Latin American Communities and Organizations: useR!2020](https://www.r-consortium.org/blog/2020/07/07/latin-american-communities-and-organizations-at-user2020)

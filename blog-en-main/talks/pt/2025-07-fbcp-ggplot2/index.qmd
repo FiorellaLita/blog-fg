@@ -1,0 +1,30 @@
+---
+toc: true
+author: Beatriz Milz
+categories: ["Mini-curso", "tidyverse", "ggplot2", "Português", "Visualização de dados"]
+date: '2025-07-24'
+event: "IX Fórum Brasileiro de Pós-Graduação em Ciência Política, Universidade de São Paulo (USP)"
+event_url: https://www.instagram.com/fbcp_oficial/
+links:
+- icon: github
+  icon_pack: fab
+  name: Repositório
+  url: https://github.com/beatrizmilz/2025-07-fbcp
+- icon: images
+  icon_pack: far
+  name: Material
+  url: https://beatrizmilz.github.io/2025-07-fbcp/
+  
+location: "Faculdade de Filosofia, Letras e Ciências Humanas da Universidade de São Paulo (FFLCH-USP) - São Paulo"
+title: "Introdução à elaboração de gráficos com ggplot2 e R"
+image: featured.png
+---
+
+```{r}
+#| echo: false
+#| results: asis
+source(here::here("R/utils.R"))
+read_yaml_talks_pt()
+```
+
+Nesta oficina, será apresentado o pacote ggplot2 em R. Este pacote é um dos mais populares para visualização de dados e permite a criação de gráficos de alta qualidade, como histogramas, boxplots, gráficos de dispersão e de barras. A oficina é voltada para iniciantes, porém é necessário ter conhecimento básico de R.

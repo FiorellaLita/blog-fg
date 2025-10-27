@@ -1,0 +1,41 @@
+---
+title: "Fiorella Gonzales"
+image: Fiorella.jpg
+about:
+  template: trestles
+  links:
+    - icon: github
+      text: GitHub
+      href: https://github.com/FiorellaLita     
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/fiorella-gonzales-guillen-1a564154/ 
+    - text: "{{< ai researchgate >}} Research Gate"
+      href: https://www.researchgate.net/profile/Fiorella-Gonzales-2?ev=hdr_xprf
+    - text: "{{< ai orcid >}} ORCID"
+      href: https://orcid.org/0000-0001-5240-2464
+---
+
+<center>
+
+::: {.btn-group role="group" aria-label="About"}
+<a href="about.html"> <button type="button" class="btn btn-primary me-md-2 btn-sm">English</button></a><a href="about-es.html"> <button type="button" class="btn btn-primary me-md-2 btn-sm">Español</button></a>
+:::
+
+</center>
+
+::: {#hero-heading}
+- **Academic Background:** Fiorella Gonzales is <strong>PhD</strong> in Biological Sciences with a minor in Ecology.
+	She researches the spatial patterns of biodiversity from a macroecological perspective.
+	She is interested in dry ecosystems such as deserts, coastal lomas, and tropical ecosystems.
+	She also has experience evaluating Neotropical vertebrates, with emphasis on mammals and birds.
+	She is currently pursuing a postdoctoral fellowship focused on the evaluation of macroecological patterns.
+
+  <p><strong>• Gradate- Master's degree in Environmental Auditing and Management</strong> from the National University of San Agustín, Peru (2017-2022).</p>
+  <p><strong>• Master in Biological Sciences</strong> from the Pontifical Catholic University of Chile (2018-2019).</p>
+  <p><strong>• Biologist</strong> at the Faculty of Biological Sciences of the National University of San Agustín, Peru (2006-2014).</p>
+
+- **Teaching:** Since 2023, she works teaching undergraduate courses related to Scientific Writing, Research Training, and Research Workshops. She has also taught the Ecology course in the Master's program since 2025.
+
+- **Affiliations:** Museum of Natural History of the National University of San Agustín (Research Associate), IUCN Global Tree Specialist Group (Advisory committee member), IUCN Tree Survival Specialist Group (Member).
+:::
