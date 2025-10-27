@@ -1,0 +1,117 @@
+[
+  {
+    "listing": "/teaching/index.html",
+    "items": [
+      "/teaching/pt/2025-11-cebrap-lab-text-as-data/index.html",
+      "/teaching/pt/2025-09-cebrap-lab-web-scraping/index.html",
+      "/teaching/pt/2025-09-cebrap-lab-viz-R/index.html",
+      "/teaching/pt/2025-08-cebrap-lab-intro-R/index.html",
+      "/teaching/pt/2025-01-ipea-intermediario-r/index.html",
+      "/teaching/pt/2025-01-verao-ime-usp-relatorios/index.html",
+      "/teaching/pt/2024-11-cebrap-lab-text-as-data/index.html",
+      "/teaching/pt/2024-10-cebrap-lab-web-scraping/index.html",
+      "/teaching/pt/2024-10-ipea-intro-r/index.html",
+      "/teaching/pt/2024-09-cebrap-lab-viz-R/index.html",
+      "/teaching/pt/2024-08-cebrap-lab-intro-R/index.html",
+      "/teaching/pt/cursor-visualizacao/index.html",
+      "/teaching/pt/cursor-r4ds-1/index.html",
+      "/teaching/pt/2024-01-verao-ime-usp-relatorios/index.html",
+      "/teaching/pt/2023-11-cebrap-lab-text-as-data/index.html",
+      "/teaching/pt/cursor-relatorios/index.html",
+      "/teaching/pt/2023-06-cebrap-lab-viz-R/index.html",
+      "/teaching/pt/2023-06-cebrap-lab-intro-R/index.html",
+      "/teaching/pt/2023-01-verao-ime-usp-relatorios/index.html",
+      "/teaching/pt/cursor-pacotes/index.html",
+      "/teaching/pt/2022-05-cebrap-lab-intro-R/index.html",
+      "/teaching/pt/2022-01-verao-ime-usp-relatorios/index.html"
+    ]
+  },
+  {
+    "listing": "/teaching/pt/index.html",
+    "items": [
+      "/teaching/pt/2025-11-cebrap-lab-text-as-data/index.html",
+      "/teaching/pt/2025-09-cebrap-lab-web-scraping/index.html",
+      "/teaching/pt/2025-09-cebrap-lab-viz-R/index.html",
+      "/teaching/pt/2025-08-cebrap-lab-intro-R/index.html",
+      "/teaching/pt/2025-01-ipea-intermediario-r/index.html",
+      "/teaching/pt/2025-01-verao-ime-usp-relatorios/index.html",
+      "/teaching/pt/2024-11-cebrap-lab-text-as-data/index.html",
+      "/teaching/pt/2024-10-cebrap-lab-web-scraping/index.html",
+      "/teaching/pt/2024-10-ipea-intro-r/index.html",
+      "/teaching/pt/2024-09-cebrap-lab-viz-R/index.html",
+      "/teaching/pt/2024-08-cebrap-lab-intro-R/index.html",
+      "/teaching/pt/cursor-visualizacao/index.html",
+      "/teaching/pt/cursor-r4ds-1/index.html",
+      "/teaching/pt/2024-01-verao-ime-usp-relatorios/index.html",
+      "/teaching/pt/2023-11-cebrap-lab-text-as-data/index.html",
+      "/teaching/pt/cursor-relatorios/index.html",
+      "/teaching/pt/2023-06-cebrap-lab-viz-R/index.html",
+      "/teaching/pt/2023-06-cebrap-lab-intro-R/index.html",
+      "/teaching/pt/2023-01-verao-ime-usp-relatorios/index.html",
+      "/teaching/pt/cursor-pacotes/index.html",
+      "/teaching/pt/2022-05-cebrap-lab-intro-R/index.html",
+      "/teaching/pt/2022-01-verao-ime-usp-relatorios/index.html"
+    ]
+  },
+  {
+    "listing": "/papers/index.html",
+    "items": [
+      "/papers/papers/index.html"
+    ]
+  },
+  {
+    "listing": "/papers/en.html",
+    "items": []
+  },
+  {
+    "listing": "/papers - copia/index.html",
+    "items": [
+      "/papers - copia/series-gha/2022-07-28-github-actions-rstudio/en/index.html",
+      "/papers - copia/series-gha/2022-series-gha-2-creating-your-first-action/en/index.html",
+      "/papers - copia/series-gha/2022-series-gha-1-what-is/en/index.html",
+      "/papers - copia/series-gha/2022-series-gha-1-what-is/es/index.html",
+      "/papers - copia/series-gha/2022-series-gha-1-what-is/pt/index.html",
+      "/papers - copia/2019-06-24-compartilhando-contedo-utilizando-r/pt/index.html",
+      "/papers - copia/2019-01-29-meio-ano-r/pt/index.html"
+    ]
+  },
+  {
+    "listing": "/papers - copia/en.html",
+    "items": [
+      "/papers - copia/series-gha/2022-07-28-github-actions-rstudio/en/index.html",
+      "/papers - copia/series-gha/2022-series-gha-2-creating-your-first-action/en/index.html",
+      "/papers - copia/series-gha/2022-series-gha-1-what-is/en/index.html"
+    ]
+  },
+  {
+    "listing": "/papers - copia/es.html",
+    "items": [
+      "/papers - copia/series-gha/2022-series-gha-1-what-is/es/index.html"
+    ]
+  },
+  {
+    "listing": "/papers - copia/pt.html",
+    "items": [
+      "/papers - copia/series-gha/2022-series-gha-1-what-is/pt/index.html",
+      "/papers - copia/2019-06-24-compartilhando-contedo-utilizando-r/pt/index.html",
+      "/papers - copia/2019-01-29-meio-ano-r/pt/index.html"
+    ]
+  },
+  {
+    "listing": "/projects/index.html",
+    "items": [
+      "/projects/rladies-sp-clube-do-livro-r4ds/index.html",
+      "/projects/package-odbr/index.html",
+      "/projects/translation-r4ds/index.html",
+      "/projects/package-dados/index.html"
+    ]
+  },
+  {
+    "listing": "/research/index.html",
+    "items": [
+      "/research/pt/2024-doutorado/index.html",
+      "/research/en/2022-ambiagua/index.html",
+      "/research/pt/2015-tcc/index.html"
+    ]
+  }
+]
