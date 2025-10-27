@@ -7,7 +7,7 @@ project:
 website:
   page-navigation: true
   title: "Fiorella Gonzales"
-  site-url: "https://fiorellafgonzalez.com/"
+  site-url: "https://FiorellaLita.github.io/blog-fg/"
   google-analytics: "G-example342423423"
   page-footer:
     left: "Website made with [Quarto](https://quarto.org/). Site design based on Beatriz Milz, licensed under CC BY-SA 2.0."
